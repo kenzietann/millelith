@@ -13,8 +13,7 @@ export interface Web3FormsResponse {
   message: string;
 }
 
-// TODO: replace with your real Web3Forms access key from https://web3forms.com
-const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+const WEB3FORMS_ACCESS_KEY = '3c95c8c0-a89a-4455-8165-1cc5a7df67fa';
 
 @Injectable({ providedIn: 'root' })
 export class Web3FormsService {
