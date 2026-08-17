@@ -2,12 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Frontend</title>
+  <title>Millelith — Software Development &amp; Security</title>
+  <meta name="description" content="Millelith is a small, senior engineering team based in Osaka delivering full-stack software development, security and penetration testing, and in-house SaaS products.">
+  <meta property="og:title" content="Millelith — Software Development &amp; Security">
+  <meta property="og:description" content="A small, senior engineering team building full-stack software, testing it like attackers would, and shipping our own SaaS products.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    try {
+      if (localStorage.getItem('millelith-theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  </script>
 </head>
-<body>
+<body class="bg-slate-50 dark:bg-slate-950">
   <app-root></app-root>
 </body>
 </html>
