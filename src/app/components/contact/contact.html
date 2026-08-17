@@ -1,174 +1,40 @@
 <section id="contact" class="py-24 sm:py-32">
-  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-    <div class="grid gap-12 lg:grid-cols-5 lg:gap-16">
-      <div appReveal class="lg:col-span-2">
-        <p class="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400">
-          Contact
-        </p>
-        <h2
-          class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white"
-        >
-          Let's build something that holds up
-        </h2>
-        <p class="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          Tell us about your project, your team, or the thing that's keeping you up at night. We
-          reply personally, usually within a business day.
-        </p>
+  <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
+    <div appReveal>
+      <p class="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400">
+        Contact
+      </p>
+      <h2
+        class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white"
+      >
+        Let's build something that holds up
+      </h2>
+      <p class="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+        Tell us about your project, your team, or the thing that's keeping you up at night. Email
+        is the fastest way to reach us — we reply personally, usually within a business day.
+      </p>
+    </div>
 
-        <div class="mt-8 space-y-3">
-          <a
-            href="mailto:hello@millelith.com"
-            class="flex items-center gap-3 text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 dark:text-slate-200 dark:hover:text-blue-400"
-          >
-            <app-icon name="mail" class="h-5 w-5 text-slate-400 dark:text-slate-500" />
-            hello&#64;millelith.com
-          </a>
-          <p class="pl-8 text-sm text-slate-500 dark:text-slate-400">Osaka, Japan · Remote-friendly</p>
-        </div>
+    <div appReveal [appRevealDelay]="0.1" class="mt-10 flex flex-col items-center gap-6">
+      <a
+        href="mailto:hello@millelith.com"
+        class="inline-flex cursor-pointer items-center gap-2.5 rounded-lg bg-blue-600 px-6 py-3.5 text-base font-semibold text-white transition-colors duration-200 hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+      >
+        <app-icon name="mail" class="h-5 w-5" />
+        hello&#64;millelith.com
+      </a>
 
-        <div class="mt-8 flex items-center gap-3">
-          <a
-            href="#"
-            aria-label="Millelith on GitHub"
-            class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-slate-200 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:border-slate-300 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 dark:border-slate-700 dark:text-slate-300 dark:hover:text-white"
-          >
-            <span aria-hidden="true">GH</span>
-          </a>
-          <a
-            href="#"
-            aria-label="Millelith on LinkedIn"
-            class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-slate-200 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:border-slate-300 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 dark:border-slate-700 dark:text-slate-300 dark:hover:text-white"
-          >
-            <span aria-hidden="true">in</span>
-          </a>
-          <a
-            href="#"
-            aria-label="Millelith on X"
-            class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-slate-200 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:border-slate-300 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 dark:border-slate-700 dark:text-slate-300 dark:hover:text-white"
-          >
-            <span aria-hidden="true">X</span>
-          </a>
-        </div>
-      </div>
+      <a
+        href="https://x.com/MillelithSec"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Millelith on X"
+        class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors duration-200 hover:border-slate-300 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 dark:border-slate-700 dark:text-slate-300 dark:hover:text-white"
+      >
+        <app-icon name="x" class="h-5 w-5" />
+      </a>
 
-      <div appReveal [appRevealDelay]="0.1" class="lg:col-span-3">
-        @if (status() === 'success') {
-          <div
-            role="status"
-            class="flex flex-col items-start rounded-2xl border border-slate-200 bg-white p-8 dark:border-slate-800 dark:bg-slate-900"
-          >
-            <div
-              class="flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400"
-            >
-              <app-icon name="check" class="h-6 w-6" />
-            </div>
-            <h3 class="mt-5 font-heading text-lg font-semibold text-slate-900 dark:text-white">
-              Message sent
-            </h3>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
-              Thanks for reaching out — we'll get back to you within a business day.
-            </p>
-            <button
-              type="button"
-              (click)="status.set('idle')"
-              class="mt-6 cursor-pointer text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400"
-            >
-              Send another message
-            </button>
-          </div>
-        } @else {
-          <form
-            [formGroup]="form"
-            (ngSubmit)="submit()"
-            novalidate
-            class="space-y-5 rounded-2xl border border-slate-200 bg-white p-8 dark:border-slate-800 dark:bg-slate-900"
-          >
-            <div>
-              <label for="contact-name" class="block text-sm font-medium text-slate-700 dark:text-slate-200">
-                Name
-              </label>
-              <input
-                id="contact-name"
-                type="text"
-                formControlName="name"
-                autocomplete="name"
-                placeholder="Ada Lovelace"
-                class="mt-2 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-slate-900 transition-colors duration-200 placeholder:text-slate-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-white"
-                [attr.aria-invalid]="name.invalid && name.touched"
-                [attr.aria-describedby]="name.invalid && name.touched ? 'contact-name-error' : null"
-              />
-              @if (name.invalid && name.touched) {
-                <p id="contact-name-error" class="mt-1.5 text-sm text-red-600 dark:text-red-400">
-                  Please enter your name.
-                </p>
-              }
-            </div>
-
-            <div>
-              <label for="contact-email" class="block text-sm font-medium text-slate-700 dark:text-slate-200">
-                Email
-              </label>
-              <input
-                id="contact-email"
-                type="email"
-                formControlName="email"
-                autocomplete="email"
-                placeholder="ada@example.com"
-                class="mt-2 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-slate-900 transition-colors duration-200 placeholder:text-slate-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-white"
-                [attr.aria-invalid]="email.invalid && email.touched"
-                [attr.aria-describedby]="email.invalid && email.touched ? 'contact-email-error' : null"
-              />
-              @if (email.invalid && email.touched) {
-                <p id="contact-email-error" class="mt-1.5 text-sm text-red-600 dark:text-red-400">
-                  Please enter a valid email address.
-                </p>
-              }
-            </div>
-
-            <div>
-              <label for="contact-message" class="block text-sm font-medium text-slate-700 dark:text-slate-200">
-                Message
-              </label>
-              <textarea
-                id="contact-message"
-                formControlName="message"
-                rows="5"
-                placeholder="What are you building?"
-                class="mt-2 block w-full resize-y rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-slate-900 transition-colors duration-200 placeholder:text-slate-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-white"
-                [attr.aria-invalid]="message.invalid && message.touched"
-                [attr.aria-describedby]="message.invalid && message.touched ? 'contact-message-error' : null"
-              ></textarea>
-              @if (message.invalid && message.touched) {
-                <p id="contact-message-error" class="mt-1.5 text-sm text-red-600 dark:text-red-400">
-                  Tell us a little more — at least 10 characters.
-                </p>
-              }
-            </div>
-
-            @if (status() === 'error') {
-              <p
-                role="alert"
-                class="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-950/40 dark:text-red-400"
-              >
-                {{ errorMessage() }}
-              </p>
-            }
-
-            <button
-              type="submit"
-              [disabled]="status() === 'submitting'"
-              class="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
-            >
-              @if (status() === 'submitting') {
-                Sending…
-              } @else {
-                Send message
-                <app-icon name="send" class="h-4 w-4" />
-              }
-            </button>
-          </form>
-        }
-      </div>
+      <p class="text-sm text-slate-500 dark:text-slate-400">Osaka, Japan · Remote-friendly</p>
     </div>
   </div>
 </section>

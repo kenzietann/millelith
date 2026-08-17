@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Icon } from '../../shared/icon/icon';
 
 interface NavLink {
   label: string;
@@ -7,6 +8,7 @@ interface NavLink {
 
 @Component({
   selector: 'app-footer',
+  imports: [Icon],
   templateUrl: './footer.html',
 })
 export class Footer {
