@@ -15,6 +15,7 @@ export class Proof {
   readonly stats: Stat[] = [
     { value: '12+ yrs', label: 'Combined engineering experience' },
     { value: '30+', label: 'Engagements shipped' },
+    { value: '47+', label: 'Vulnerabilities found' },
     { value: '3', label: 'SaaS products in production' },
     { value: 'Osaka', label: 'Based, remote-friendly' },
   ];
