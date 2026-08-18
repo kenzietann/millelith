@@ -17,36 +17,36 @@ interface ServiceItem {
 export class Services {
   readonly items: ServiceItem[] = [
     {
-      icon: 'code',
-      title: 'Software Development',
-      description:
-        'Full-stack web and mobile applications built on modern, boring-on-purpose technology — engineered to be maintained, not just demoed.',
-      capabilities: [
-        'Web & mobile product engineering',
-        'API design and systems architecture',
-        'Legacy modernization & migrations',
-      ],
-    },
-    {
       icon: 'shield-check',
-      title: 'Security & Penetration Testing',
+      title: 'Penetration Testing',
       description:
-        'Offensive security testing that mirrors real-world attackers — web apps, APIs, infrastructure, and cloud environments.',
+        'Offensive security testing that mirrors real-world attackers — web apps, APIs, networks, and cloud environments.',
       capabilities: [
         'Web & API penetration testing',
-        'Cloud & infrastructure audits',
+        'Network & cloud infrastructure audits',
         'Remediation support, not just a PDF',
       ],
     },
     {
-      icon: 'layers',
-      title: 'SaaS Products',
+      icon: 'lock',
+      title: 'Physical Penetration Testing',
       description:
-        'We build and operate our own software products, which means we understand the full lifecycle — not just the handoff.',
+        'On-site assessments that test whether your physical security controls hold up against a real intrusion attempt.',
       capabilities: [
-        'In-house product design & ownership',
-        'Production infrastructure & on-call',
-        'Applied AI where it earns its place',
+        'Facility & access control testing',
+        'Social engineering & tailgating assessments',
+        'Badge, lock & surveillance system review',
+      ],
+    },
+    {
+      icon: 'code',
+      title: 'IT Services',
+      description:
+        'Whatever your team needs on the IT side, we cover it end to end — from custom software to the devices on your network.',
+      capabilities: [
+        'Software, web & mobile development',
+        'Infrastructure, cloud & IT support',
+        'IoT & connected device deployment',
       ],
     },
   ];

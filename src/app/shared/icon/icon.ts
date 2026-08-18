@@ -16,7 +16,8 @@ export type IconName =
   | 'lock'
   | 'send'
   | 'mail'
-  | 'x';
+  | 'x'
+  | 'file-text';
 
 @Component({
   selector: 'app-icon',
@@ -98,6 +99,12 @@ export type IconName =
         @case ('mail') {
           <rect x="3" y="5" width="18" height="14" rx="2" />
           <polyline points="3 7 12 13 21 7" />
+        }
+        @case ('file-text') {
+          <path d="M6 3h8l6 6v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+          <polyline points="14 3 14 9 20 9" />
+          <line x1="8" y1="14" x2="16" y2="14" />
+          <line x1="8" y1="18" x2="13" y2="18" />
         }
         @case ('x') {
           <path

@@ -7,7 +7,7 @@ import { Icon } from '../../shared/icon/icon';
   templateUrl: './hero.html',
 })
 export class Hero {
-  readonly phrases = ['We build.', 'We secure.', 'We ship.'];
+  readonly phrases = ['We secure.', 'We build.', 'We ship.'];
   readonly activeIndex = signal(0);
   readonly jsEnabled = signal(false);
 
