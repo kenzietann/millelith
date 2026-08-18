@@ -26,7 +26,7 @@ export class Findings {
       description:
         "An authorized assessment conducted through a private bug bounty program. A single high-severity issue was identified, validated, and disclosed to the vendor through their coordinated channel. Details remain confidential under the program's disclosure terms.",
       channel: 'HackerOne — private program',
-      status: 'Reported & acknowledged',
+      status: 'Submitted to HackerOne',
     },
     {
       category: 'WordPress platform — multiple',
