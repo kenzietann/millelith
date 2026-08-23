@@ -24,7 +24,7 @@ export class Findings {
       stat: 'CVSS 7.5',
       statLabel: 'Severity score',
       description:
-        "An authorized assessment conducted through a private bug bounty program. A single high-severity issue was identified, validated, and disclosed to the vendor through their coordinated channel. Details remain confidential under the program's disclosure terms.",
+        "Security research conducted under an authorized private bug bounty program. A high-severity issue was identified, validated, and responsibly disclosed through the program’s designated channel. Technical details remain confidential under the program’s disclosure terms.",
       channel: 'HackerOne — private program',
       status: 'Submitted to HackerOne',
     },
