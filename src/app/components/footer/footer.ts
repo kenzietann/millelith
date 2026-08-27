@@ -16,7 +16,6 @@ export class Footer {
 
   readonly links: NavLink[] = [
     { label: 'Services', href: '#services' },
-    { label: 'Findings', href: '#findings' },
     { label: 'About', href: '#about' },
     { label: 'Process', href: '#process' },
     { label: 'Contact', href: '#contact' },
