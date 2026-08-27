@@ -16,6 +16,7 @@ export class Proof {
     { value: '12+ yrs', label: 'Combined engineering experience' },
     { value: '34+', label: 'Engagements shipped' },
     { value: '109+', label: 'Vulnerabilities found' },
+    { value: '3', label: 'SaaS products in production' },
     { value: 'Osaka', label: 'Based, remote-friendly' },
   ];
 }
