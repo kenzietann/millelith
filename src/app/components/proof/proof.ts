@@ -4,6 +4,9 @@ import { Reveal } from '../../shared/reveal.directive';
 interface Stat {
   value: string;
   label: string;
+  key: string;
+  /** Rendered in red — severity-style emphasis. Use sparingly. */
+  critical?: boolean;
 }
 
 @Component({
@@ -13,10 +16,22 @@ interface Stat {
 })
 export class Proof {
   readonly stats: Stat[] = [
-    { value: '12+ yrs', label: 'Combined engineering experience' },
-    { value: '34+', label: 'Engagements shipped' },
-    { value: '109+', label: 'Vulnerabilities found' },
-    { value: '3', label: 'SaaS products in production' },
-    { value: 'Osaka', label: 'Based, remote-friendly' },
+    { key: 'exp_years', value: '12+ yrs', label: 'Combined engineering experience' },
+    { key: 'engagements', value: '34+', label: 'Engagements shipped' },
+    { key: 'vulns_found', value: '109+', label: 'Vulnerabilities found', critical: true },
+    { key: 'saas_prod', value: '3', label: 'SaaS products in production' },
+    { key: 'base', value: 'Osaka', label: 'Based, remote-friendly' },
+  ];
+
+  readonly ticker = [
+    'web & api pentest',
+    'network & cloud audit',
+    'physical intrusion',
+    'social engineering',
+    'badge · lock · cctv review',
+    'remediation support',
+    'retest included',
+    'software · infra · iot',
+    'osaka → remote',
   ];
 }

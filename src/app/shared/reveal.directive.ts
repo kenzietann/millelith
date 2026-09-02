@@ -18,10 +18,10 @@ export class Reveal {
       gsap.registerPlugin(ScrollTrigger);
       gsap.from(this.el.nativeElement, {
         opacity: 0,
-        y: 16,
-        duration: 0.5,
+        y: 10,
+        duration: 0.35,
         delay: this.appRevealDelay(),
-        ease: 'power2.out',
+        ease: 'steps(6)',
         scrollTrigger: {
           trigger: this.el.nativeElement,
           start: 'top 88%',

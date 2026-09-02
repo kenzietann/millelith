@@ -1,4 +1,4 @@
-import { Component, afterNextRender, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Icon } from '../../shared/icon/icon';
 
 interface NavLink {
@@ -20,13 +20,6 @@ export class Nav {
   ];
 
   readonly mobileOpen = signal(false);
-  readonly isDark = signal(false);
-
-  constructor() {
-    afterNextRender(() => {
-      this.isDark.set(document.documentElement.classList.contains('dark'));
-    });
-  }
 
   closeMenu(): void {
     this.mobileOpen.set(false);
@@ -34,12 +27,5 @@ export class Nav {
 
   toggleMenu(): void {
     this.mobileOpen.update((open) => !open);
-  }
-
-  toggleTheme(): void {
-    const next = !this.isDark();
-    document.documentElement.classList.toggle('dark', next);
-    localStorage.setItem('millelith-theme', next ? 'dark' : 'light');
-    this.isDark.set(next);
   }
 }

@@ -1,61 +1,75 @@
-<footer class="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
-  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-    <div class="flex flex-col justify-between gap-10 md:flex-row">
-      <div class="max-w-sm">
-        <a href="#" class="flex items-center gap-2.5 font-heading text-lg font-bold tracking-tight text-slate-900 dark:text-white">
-          <img src="millelith_black.png" alt="" class="h-8 w-auto dark:hidden" />
-          <img src="millelith_white.png" alt="" class="hidden h-8 w-auto dark:block" />
-          Millelith Security
+<footer class="relative overflow-hidden border-t border-line bg-panel">
+  <pre
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-x-0 bottom-0 overflow-hidden font-mono text-[10px] leading-[1.4] whitespace-pre text-ink/[0.04] select-none"
+    >{{ hex }}</pre
+  >
+
+  <div class="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+    <div class="grid gap-10 md:grid-cols-12">
+      <div class="md:col-span-6">
+        <a
+          href="#"
+          class="inline-flex items-center gap-3 font-mono text-sm font-bold tracking-tight text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alert"
+        >
+          <img src="millelith_white.png" alt="" class="h-7 w-auto" />
+          <span class="glitch" data-text="MILLELITH">MILLELITH</span>
+          <span class="text-faint">/</span>
+          <span class="font-normal text-dim">SEC</span>
         </a>
-        <p class="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-dim">
           A small, senior engineering team building full-stack software, testing it, and shipping
           our own SaaS products from Osaka, Japan.
         </p>
       </div>
 
-      <div class="flex flex-col gap-6 sm:flex-row sm:gap-16">
-        <nav aria-label="Footer">
-          <p class="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">
-            Navigate
-          </p>
-          <ul class="mt-4 space-y-2.5">
-            @for (link of links; track link.href) {
-              <li>
-                <a
-                  [href]="link.href"
-                  class="text-sm text-slate-600 transition-colors duration-200 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 dark:text-slate-300 dark:hover:text-white"
-                >
-                  {{ link.label }}
-                </a>
-              </li>
-            }
-          </ul>
-        </nav>
+      <nav aria-label="Footer" class="md:col-span-3">
+        <p class="font-mono text-[10px] tracking-[0.2em] text-faint uppercase">// navigate</p>
+        <ul class="mt-4 space-y-2.5">
+          @for (link of links; track link.href; let i = $index) {
+            <li>
+              <a
+                [href]="link.href"
+                class="group inline-flex items-baseline gap-2 font-mono text-[12px] tracking-[0.12em] text-dim uppercase transition-colors duration-150 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alert"
+              >
+                <span class="text-[10px] text-faint group-hover:text-alert">0{{ i + 1 }}</span>
+                {{ link.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
 
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">
-            Connect
-          </p>
-          <div class="mt-4 flex items-center gap-3">
-            <a
-              href="https://x.com/MillelithSec"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Millelith on X"
-              class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors duration-200 hover:border-slate-300 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 dark:border-slate-700 dark:text-slate-300 dark:hover:text-white"
-            >
-              <app-icon name="x" class="h-5 w-5" />
-            </a>
-          </div>
+      <div class="md:col-span-3">
+        <p class="font-mono text-[10px] tracking-[0.2em] text-faint uppercase">// connect</p>
+        <div class="mt-4 flex items-center gap-3">
+          <a
+            href="https://x.com/MillelithSec"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Millelith on X"
+            class="flex h-10 w-10 cursor-pointer items-center justify-center border border-line-strong text-dim transition-colors duration-150 hover:border-alert hover:text-alert hover:shadow-alert focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alert"
+          >
+            <app-icon name="x" class="h-4 w-4" />
+          </a>
+          <a
+            href="mailto:hello@millelith.com"
+            class="font-mono text-[12px] text-dim transition-colors hover:text-alert focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alert"
+          >
+            hello&#64;millelith.com
+          </a>
         </div>
       </div>
     </div>
 
     <div
-      class="mt-12 flex flex-col gap-2 border-t border-slate-200 pt-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800 dark:text-slate-400"
+      class="mt-12 flex flex-col gap-2 border-t border-line pt-6 font-mono text-[11px] tracking-[0.12em] text-faint uppercase sm:flex-row sm:items-center sm:justify-between"
     >
       <p>&copy; {{ year }} Millelith Security. All rights reserved.</p>
-      <p>Osaka, Japan</p>
+      <p>
+        <span class="mr-2 inline-block h-1.5 w-1.5 bg-alert align-middle"></span>
+        Osaka, Japan
+      </p>
     </div>
   </div>
 </footer>

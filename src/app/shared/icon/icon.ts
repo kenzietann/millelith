@@ -3,8 +3,6 @@ import { Component, input } from '@angular/core';
 export type IconName =
   | 'menu'
   | 'close'
-  | 'sun'
-  | 'moon'
   | 'arrow-right'
   | 'external-link'
   | 'check'
@@ -41,20 +39,6 @@ export type IconName =
         @case ('close') {
           <line x1="6" y1="6" x2="18" y2="18" />
           <line x1="18" y1="6" x2="6" y2="18" />
-        }
-        @case ('sun') {
-          <circle cx="12" cy="12" r="4" />
-          <line x1="12" y1="2" x2="12" y2="4" />
-          <line x1="12" y1="20" x2="12" y2="22" />
-          <line x1="2" y1="12" x2="4" y2="12" />
-          <line x1="20" y1="12" x2="22" y2="12" />
-          <line x1="4.93" y1="4.93" x2="6.34" y2="6.34" />
-          <line x1="17.66" y1="17.66" x2="19.07" y2="19.07" />
-          <line x1="4.93" y1="19.07" x2="6.34" y2="17.66" />
-          <line x1="17.66" y1="6.34" x2="19.07" y2="4.93" />
-        }
-        @case ('moon') {
-          <path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z" />
         }
         @case ('arrow-right') {
           <line x1="4" y1="12" x2="20" y2="12" />

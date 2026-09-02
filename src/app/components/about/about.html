@@ -1,16 +1,10 @@
-<section id="about" class="py-24 sm:py-32">
-  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-    <div class="grid gap-12 lg:grid-cols-5 lg:gap-16">
-      <div appReveal class="lg:col-span-3">
-        <p class="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400">
-          About
-        </p>
-        <h2
-          class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white"
-        >
-          Small on purpose
-        </h2>
-        <div class="mt-6 space-y-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+<section id="about" class="border-y border-line bg-panel py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div appReveal class="lg:col-span-7">
+        <p class="section-kicker">About</p>
+        <h2 class="section-title">Small on purpose</h2>
+        <div class="mt-6 space-y-5 text-lg leading-relaxed text-dim">
           <p>
             Millelith started in Osaka as a three-person team of engineers who were tired of
             choosing between shipping fast and shipping safely. We still work that way — small,
@@ -24,6 +18,25 @@
         </div>
       </div>
 
+      <div appReveal [appRevealDelay]="0.1" class="lg:col-span-5 lg:pt-10" aria-hidden="true">
+        <div class="term brackets">
+          <div class="term-bar">
+            <div class="term-dots"><span></span><span></span><span></span></div>
+            <span class="ml-1">team.manifest</span>
+            <span class="ml-auto text-faint">ro</span>
+          </div>
+          <pre class="overflow-x-auto p-5 font-mono text-[13px] leading-[1.9] text-dim"><span class="text-faint"># who actually does the work</span>
+<span class="text-ink">size</span>         = <span class="text-alert">3</span>
+<span class="text-ink">location</span>     = "Osaka, JP"
+<span class="text-ink">remote</span>       = true
+<span class="text-ink">hands_on</span>     = true
+<span class="text-ink">bench</span>        = none
+<span class="text-ink">hand_offs</span>    = <span class="text-alert">0</span>
+<span class="text-ink">account_mgrs</span> = null
+<span class="text-ink">writes_code</span>  = true
+<span class="text-ink">runs_exploits</span> = true<span class="cursor"></span></pre>
+        </div>
+      </div>
     </div>
   </div>
 </section>

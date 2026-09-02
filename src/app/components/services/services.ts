@@ -4,9 +4,12 @@ import { Reveal } from '../../shared/reveal.directive';
 
 interface ServiceItem {
   icon: IconName;
+  file: string;
   title: string;
   description: string;
   capabilities: string[];
+  /** The one card whose CTA gets the red treatment. */
+  primary?: boolean;
 }
 
 @Component({
@@ -18,6 +21,7 @@ export class Services {
   readonly items: ServiceItem[] = [
     {
       icon: 'shield-check',
+      file: 'pentest.sh',
       title: 'Penetration Testing',
       description:
         'Offensive security testing that mirrors real-world attackers — web apps, APIs, networks, and cloud environments.',
@@ -26,9 +30,11 @@ export class Services {
         'Network & cloud infrastructure audits',
         'Remediation support, not just a PDF',
       ],
+      primary: true,
     },
     {
       icon: 'lock',
+      file: 'physical.sh',
       title: 'Physical Penetration Testing',
       description:
         'On-site assessments that test whether your physical security controls hold up against a real intrusion attempt.',
@@ -40,6 +46,7 @@ export class Services {
     },
     {
       icon: 'code',
+      file: 'it-services.sh',
       title: 'IT Services',
       description:
         'Whatever your team needs on the IT side, we cover it end to end — from custom software to the devices on your network.',

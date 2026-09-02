@@ -1,40 +1,51 @@
-<section id="contact" class="py-24 sm:py-32">
-  <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
-    <div appReveal>
-      <p class="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400">
-        Contact
-      </p>
-      <h2
-        class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white"
-      >
-        Let's build something that holds up
-      </h2>
-      <p class="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+<section id="contact" class="relative border-t border-line py-24 sm:py-32">
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute bottom-0 left-1/2 h-[420px] w-[720px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_bottom,rgb(255_0_60_/_0.12),transparent_65%)]"
+  ></div>
+
+  <div class="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div appReveal class="text-center">
+      <p class="section-kicker">Contact</p>
+      <h2 class="section-title">Let's build something that holds up</h2>
+      <p class="section-lede">
         Tell us about your project, your team, or the thing that's keeping you up at night. Email
         is the fastest way to reach us — we reply personally, usually within a business day.
       </p>
     </div>
 
-    <div appReveal [appRevealDelay]="0.1" class="mt-10 flex flex-col items-center gap-6">
-      <a
-        href="mailto:hello@millelith.com"
-        class="inline-flex cursor-pointer items-center gap-2.5 rounded-lg bg-blue-600 px-6 py-3.5 text-base font-semibold text-white transition-colors duration-200 hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
-      >
-        <app-icon name="mail" class="h-5 w-5" />
-        hello&#64;millelith.com
-      </a>
+    <div appReveal [appRevealDelay]="0.1" class="term brackets mt-12">
+      <div class="term-bar">
+        <div class="term-dots"><span></span><span></span><span></span></div>
+        <span class="ml-1">contact — sh</span>
+      </div>
+      <div class="p-6 sm:p-8">
+        <p class="font-mono text-[13px] text-dim">
+          <span class="text-alert">$</span> mail <span class="text-ink">hello&#64;millelith.com</span>
+          --subject <span class="text-ink">"scope request"</span>
+        </p>
 
-      <a
-        href="https://x.com/MillelithSec"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Millelith on X"
-        class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors duration-200 hover:border-slate-300 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 dark:border-slate-700 dark:text-slate-300 dark:hover:text-white"
-      >
-        <app-icon name="x" class="h-5 w-5" />
-      </a>
+        <div class="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+          <a href="mailto:hello@millelith.com" class="btn-alert !px-7 !py-4 !text-sm">
+            <app-icon name="mail" class="h-4.5 w-4.5" />
+            hello&#64;millelith.com
+          </a>
 
-      <p class="text-sm text-slate-500 dark:text-slate-400">Osaka, Japan · Remote-friendly</p>
+          <a
+            href="https://x.com/MillelithSec"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Millelith on X"
+            class="flex h-12 w-12 cursor-pointer items-center justify-center border border-line-strong text-dim transition-colors duration-150 hover:border-alert hover:text-alert hover:shadow-alert focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alert"
+          >
+            <app-icon name="x" class="h-4.5 w-4.5" />
+          </a>
+        </div>
+
+        <p class="mt-6 font-mono text-[11px] tracking-[0.18em] text-faint uppercase">
+          Osaka, Japan &nbsp;·&nbsp; Remote-friendly &nbsp;·&nbsp; Reply ≤ 1 business day
+        </p>
+      </div>
     </div>
   </div>
 </section>

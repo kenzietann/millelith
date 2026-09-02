@@ -1,37 +1,285 @@
 @import 'tailwindcss';
 
-/* Dark mode is toggled manually via a `.dark` class on <html>, not by OS preference. */
-@custom-variant dark (&:where(.dark, .dark *));
-
+/*
+ * Millelith — dark-first, single-accent theme.
+ * Red is a warning light: CTAs, severity, hover/active states. Nothing else.
+ */
 @theme {
-  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --color-void: #0a0a0f;
+  --color-panel: #0e0e15;
+  --color-raised: #13131c;
+  --color-line: #1e1e2a;
+  --color-line-strong: #2b2b3b;
+  --color-ink: #e8e8ee;
+  --color-dim: #8b8b9e;
+  --color-faint: #4c4c5e;
+  --color-alert: #ff003c;
+  --color-alert-dim: #b3002a;
+
+  --shadow-alert: 0 0 0 1px rgb(255 0 60 / 0.6), 0 0 18px rgb(255 0 60 / 0.25);
+  --shadow-alert-strong: 0 0 0 1px rgb(255 0 60 / 0.9), 0 0 28px rgb(255 0 60 / 0.45);
 }
 
 html {
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 4.5rem;
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   font-family: var(--font-sans);
+  background-color: var(--color-void);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
 }
 
-@keyframes node-pulse {
-  0%,
-  100% {
-    opacity: 0.35;
-    transform: scale(1);
+::selection {
+  background: var(--color-alert);
+  color: #fff;
+}
+
+/* CRT scanline overlay — sits above everything, never intercepts input. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0) 0px,
+    rgb(0 0 0 / 0) 2px,
+    rgb(0 0 0 / 0.18) 3px,
+    rgb(0 0 0 / 0) 4px
+  );
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+}
+
+@layer components {
+  /* ---------- Buttons ---------- */
+  .btn-alert,
+  .btn-ghost {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 border px-5 py-3 font-mono text-xs font-semibold tracking-[0.12em] uppercase transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alert focus-visible:ring-offset-2 focus-visible:ring-offset-void active:translate-y-px;
+  }
+  .btn-alert {
+    @apply border-alert bg-alert text-white shadow-alert hover:bg-[#ff1f55] hover:shadow-alert-strong;
+  }
+  .btn-ghost {
+    @apply border-line-strong bg-transparent text-ink hover:border-alert hover:text-alert hover:shadow-alert;
+  }
+
+  /* ---------- Section chrome ---------- */
+  .section-kicker {
+    @apply font-mono text-[11px] font-medium tracking-[0.2em] text-alert uppercase;
+  }
+  .section-kicker::before {
+    content: '// ';
+    color: var(--color-faint);
+  }
+  .section-title {
+    @apply mt-3 font-mono text-3xl font-bold tracking-tight text-ink sm:text-4xl;
+  }
+  .section-lede {
+    @apply mt-4 text-lg leading-relaxed text-dim;
+  }
+
+  /* ---------- Terminal window ---------- */
+  .term {
+    @apply relative border border-line bg-panel;
+  }
+  .term-bar {
+    @apply flex items-center gap-3 border-b border-line bg-raised px-4 py-2.5 font-mono text-[11px] text-dim;
+  }
+  .term-dots {
+    @apply flex items-center gap-1.5;
+  }
+  .term-dots span {
+    @apply block h-2 w-2 bg-faint;
+  }
+  .term-dots span:first-child {
+    @apply bg-alert;
+  }
+
+  /* ---------- Severity badge ---------- */
+  .sev {
+    @apply inline-flex items-center gap-1.5 border px-2 py-0.5 font-mono text-[10px] font-semibold tracking-[0.15em] uppercase;
+  }
+  .sev-crit {
+    @apply border-alert text-alert;
+  }
+  .sev-info {
+    @apply border-line-strong text-dim;
+  }
+}
+
+@layer utilities {
+  /* Fine engineering grid */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .bg-grid-fade {
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 100%);
+  }
+
+  /* Corner bracket marks — reads like a targeting reticle / HUD frame */
+  .brackets {
+    position: relative;
+  }
+  .brackets::before,
+  .brackets::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: var(--color-line-strong);
+    border-style: solid;
+    transition: border-color 150ms;
+    pointer-events: none;
+  }
+  .brackets::before {
+    top: -1px;
+    left: -1px;
+    border-width: 1px 0 0 1px;
+  }
+  .brackets::after {
+    right: -1px;
+    bottom: -1px;
+    border-width: 0 1px 1px 0;
+  }
+  .brackets:hover::before,
+  .brackets:hover::after {
+    border-color: var(--color-alert);
+  }
+
+  /* Blinking block cursor */
+  .cursor::after {
+    content: '▮';
+    margin-left: 0.15em;
+    color: var(--color-alert);
+    animation: blink 1s steps(2, start) infinite;
+  }
+  .blink {
+    animation: blink 1.2s steps(2, start) infinite;
+  }
+
+  /* Glitch on hover — needs data-text="<same text>" on the element */
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .glitch::before {
+    color: var(--color-alert);
+    left: 2px;
+  }
+  .glitch::after {
+    color: #35e0ff;
+    left: -2px;
+  }
+  .glitch:hover::before {
+    opacity: 0.85;
+    animation: glitch-a 0.55s steps(1) infinite;
+  }
+  .glitch:hover::after {
+    opacity: 0.6;
+    animation: glitch-b 0.55s steps(1) infinite;
+  }
+
+  .ticker-track {
+    animation: ticker 40s linear infinite;
+  }
+  .ticker-track:hover {
+    animation-play-state: paused;
+  }
+
+  .sweep {
+    animation: sweep 6s linear infinite;
+  }
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes glitch-a {
+  0% {
+    clip-path: inset(10% 0 80% 0);
+    transform: translate(-2px, 0);
+  }
+  25% {
+    clip-path: inset(60% 0 10% 0);
+    transform: translate(2px, 0);
   }
   50% {
-    opacity: 1;
-    transform: scale(1.15);
+    clip-path: inset(30% 0 50% 0);
+    transform: translate(-1px, 0);
+  }
+  75% {
+    clip-path: inset(80% 0 5% 0);
+    transform: translate(1px, 0);
+  }
+  100% {
+    clip-path: inset(10% 0 80% 0);
+    transform: translate(-2px, 0);
   }
 }
 
-.animate-node-pulse {
-  animation: node-pulse 3.2s ease-in-out infinite;
-  transform-origin: center;
+@keyframes glitch-b {
+  0% {
+    clip-path: inset(70% 0 10% 0);
+    transform: translate(2px, 0);
+  }
+  25% {
+    clip-path: inset(5% 0 85% 0);
+    transform: translate(-2px, 0);
+  }
+  50% {
+    clip-path: inset(50% 0 30% 0);
+    transform: translate(1px, 0);
+  }
+  75% {
+    clip-path: inset(20% 0 60% 0);
+    transform: translate(-1px, 0);
+  }
+  100% {
+    clip-path: inset(70% 0 10% 0);
+    transform: translate(2px, 0);
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes sweep {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -42,5 +290,8 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  body::after {
+    display: none;
   }
 }
