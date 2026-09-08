@@ -15,8 +15,14 @@
   --color-line-strong: #2b2b3b;
   --color-ink: #e8e8ee;
   --color-dim: #8b8b9e;
-  --color-faint: #4c4c5e;
+  /* Tertiary "telemetry" text — lightened to clear WCAG AA (4.5:1) on void/panel/raised
+     while staying the quietest text tier. */
+  --color-faint: #7d7d90;
   --color-alert: #ff003c;
+  /* Deeper reds for solid fills so white text meets AA; the bright --color-alert
+     stays for text, borders and the glow. */
+  --color-alert-solid: #dd0033;
+  --color-alert-hi: #e60036;
   --color-alert-dim: #b3002a;
 
   --shadow-alert: 0 0 0 1px rgb(255 0 60 / 0.6), 0 0 18px rgb(255 0 60 / 0.25);
@@ -66,7 +72,7 @@ body::after {
     @apply inline-flex cursor-pointer items-center justify-center gap-2 border px-5 py-3 font-mono text-xs font-semibold tracking-[0.12em] uppercase transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alert focus-visible:ring-offset-2 focus-visible:ring-offset-void active:translate-y-px;
   }
   .btn-alert {
-    @apply border-alert bg-alert text-white shadow-alert hover:bg-[#ff1f55] hover:shadow-alert-strong;
+    @apply border-alert-solid bg-alert-solid text-white shadow-alert hover:bg-alert-hi hover:shadow-alert-strong;
   }
   .btn-ghost {
     @apply border-line-strong bg-transparent text-ink hover:border-alert hover:text-alert hover:shadow-alert;
@@ -74,7 +80,7 @@ body::after {
 
   /* ---------- Section chrome ---------- */
   .section-kicker {
-    @apply font-mono text-[11px] font-medium tracking-[0.2em] text-alert uppercase;
+    @apply font-mono text-[12px] font-medium tracking-[0.2em] text-alert uppercase;
   }
   .section-kicker::before {
     content: '// ';
@@ -92,7 +98,7 @@ body::after {
     @apply relative border border-line bg-panel;
   }
   .term-bar {
-    @apply flex items-center gap-3 border-b border-line bg-raised px-4 py-2.5 font-mono text-[11px] text-dim;
+    @apply flex items-center gap-3 border-b border-line bg-raised px-4 py-2.5 font-mono text-[12px] text-dim;
   }
   .term-dots {
     @apply flex items-center gap-1.5;
@@ -106,7 +112,7 @@ body::after {
 
   /* ---------- Severity badge ---------- */
   .sev {
-    @apply inline-flex items-center gap-1.5 border px-2 py-0.5 font-mono text-[10px] font-semibold tracking-[0.15em] uppercase;
+    @apply inline-flex items-center gap-1.5 border px-2 py-0.5 font-mono text-[12px] font-semibold tracking-[0.15em] uppercase;
   }
   .sev-crit {
     @apply border-alert text-alert;
@@ -209,6 +215,20 @@ body::after {
 
   .sweep {
     animation: sweep 6s linear infinite;
+  }
+
+  /* Scroll reveal (see Reveal directive) — smooth fade + rise. */
+  .reveal-init {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-init.reveal-in {
+    opacity: 1;
+    transform: none;
   }
 }
 

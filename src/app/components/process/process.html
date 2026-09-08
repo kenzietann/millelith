@@ -11,7 +11,7 @@
     @for (track of tracks; track track.label; let t = $index) {
       <div [class.mt-16]="t === 0" [class.mt-20]="t > 0">
         <div appReveal class="flex items-center gap-4">
-          <span class="font-mono text-[11px] tracking-[0.2em] text-alert uppercase">
+          <span class="font-mono text-[12px] tracking-[0.2em] text-alert uppercase">
             track 0{{ t + 1 }}
           </span>
           <span class="h-px flex-1 bg-line" aria-hidden="true"></span>
@@ -33,7 +33,7 @@
                 >
                   <app-icon [name]="step.icon" class="h-4.5 w-4.5" />
                 </span>
-                <span class="font-mono text-[11px] tracking-[0.18em] text-faint">
+                <span class="font-mono text-[12px] tracking-[0.18em] text-faint">
                   0{{ i + 1 }}<span class="text-line-strong">/</span>0{{ track.steps.length }}
                 </span>
               </div>

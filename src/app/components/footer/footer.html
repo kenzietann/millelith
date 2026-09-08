@@ -1,7 +1,7 @@
 <footer class="relative overflow-hidden border-t border-line bg-panel">
   <pre
     aria-hidden="true"
-    class="pointer-events-none absolute inset-x-0 bottom-0 overflow-hidden font-mono text-[10px] leading-[1.4] whitespace-pre text-ink/[0.04] select-none"
+    class="pointer-events-none absolute inset-x-0 bottom-0 overflow-hidden font-mono text-[12px] leading-[1.4] whitespace-pre text-ink/[0.04] select-none"
     >{{ hex }}</pre
   >
 
@@ -24,7 +24,7 @@
       </div>
 
       <nav aria-label="Footer" class="md:col-span-3">
-        <p class="font-mono text-[10px] tracking-[0.2em] text-faint uppercase">// navigate</p>
+        <p class="font-mono text-[12px] tracking-[0.2em] text-faint uppercase">// navigate</p>
         <ul class="mt-4 space-y-2.5">
           @for (link of links; track link.href; let i = $index) {
             <li>
@@ -32,7 +32,7 @@
                 [href]="link.href"
                 class="group inline-flex items-baseline gap-2 font-mono text-[12px] tracking-[0.12em] text-dim uppercase transition-colors duration-150 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alert"
               >
-                <span class="text-[10px] text-faint group-hover:text-alert">0{{ i + 1 }}</span>
+                <span class="text-[12px] text-faint group-hover:text-alert">0{{ i + 1 }}</span>
                 {{ link.label }}
               </a>
             </li>
@@ -41,7 +41,7 @@
       </nav>
 
       <div class="md:col-span-3">
-        <p class="font-mono text-[10px] tracking-[0.2em] text-faint uppercase">// connect</p>
+        <p class="font-mono text-[12px] tracking-[0.2em] text-faint uppercase">// connect</p>
         <div class="mt-4 flex items-center gap-3">
           <a
             href="https://x.com/MillelithSec"
@@ -63,7 +63,7 @@
     </div>
 
     <div
-      class="mt-12 flex flex-col gap-2 border-t border-line pt-6 font-mono text-[11px] tracking-[0.12em] text-faint uppercase sm:flex-row sm:items-center sm:justify-between"
+      class="mt-12 flex flex-col gap-2 border-t border-line pt-6 font-mono text-[12px] tracking-[0.12em] text-faint uppercase sm:flex-row sm:items-center sm:justify-between"
     >
       <p>&copy; {{ year }} Millelith Security. All rights reserved.</p>
       <p>

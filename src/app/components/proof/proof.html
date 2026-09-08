@@ -1,7 +1,7 @@
 <section aria-label="Company highlights" class="border-b border-line bg-panel">
   <!-- ticker -->
   <div class="overflow-hidden border-b border-line" aria-hidden="true">
-    <div class="ticker-track flex w-max whitespace-nowrap py-2 font-mono text-[10px] tracking-[0.22em] text-faint uppercase">
+    <div class="ticker-track flex w-max whitespace-nowrap py-2 font-mono text-[12px] tracking-[0.22em] text-faint uppercase">
       @for (pass of [0, 1]; track pass) {
         @for (item of ticker; track item) {
           <span class="px-6">{{ item }}<span class="ml-6 text-alert">//</span></span>
@@ -11,7 +11,7 @@
   </div>
 
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center gap-4 border-b border-line py-3 font-mono text-[11px] tracking-[0.18em] text-dim uppercase">
+    <div class="flex items-center gap-4 border-b border-line py-3 font-mono text-[12px] tracking-[0.18em] text-dim uppercase">
       <span class="flex items-center gap-2">
         <span class="h-1.5 w-1.5 bg-alert blink"></span>
         Live readout
@@ -27,7 +27,7 @@
           [appRevealDelay]="i * 0.06"
           class="group relative px-2 py-8 lg:px-6"
         >
-          <dt class="font-mono text-[10px] tracking-[0.18em] text-faint uppercase">
+          <dt class="font-mono text-[12px] tracking-[0.18em] text-faint uppercase">
             {{ stat.key }}
           </dt>
           <dd
