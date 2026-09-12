@@ -13,8 +13,8 @@
       <span class="hidden font-normal text-dim sm:inline">SEC</span>
     </a>
 
-    <div class="hidden items-center gap-8 md:flex">
-      <ul class="flex items-center gap-7">
+    <div class="hidden items-center gap-8 lg:flex">
+      <ul class="flex items-center gap-6 xl:gap-7">
         @for (link of links; track link.href; let i = $index) {
           <li>
             <a
@@ -35,7 +35,7 @@
       <button
         type="button"
         (click)="toggleMenu()"
-        class="flex h-10 w-10 cursor-pointer items-center justify-center border border-transparent text-dim transition-colors duration-150 hover:border-line-strong hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alert md:hidden"
+        class="flex h-10 w-10 cursor-pointer items-center justify-center border border-transparent text-dim transition-colors duration-150 hover:border-line-strong hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alert lg:hidden"
         [attr.aria-expanded]="mobileOpen()"
         aria-controls="mobile-menu"
         [attr.aria-label]="mobileOpen() ? 'Close menu' : 'Open menu'"
@@ -46,7 +46,7 @@
   </div>
 
   @if (mobileOpen()) {
-    <div id="mobile-menu" class="border-t border-line bg-void px-4 pt-2 pb-6 md:hidden">
+    <div id="mobile-menu" class="border-t border-line bg-void px-4 pt-2 pb-6 lg:hidden">
       <ul class="flex flex-col">
         @for (link of links; track link.href; let i = $index) {
           <li>

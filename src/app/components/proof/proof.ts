@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { OrgLogo } from '../../shared/org-logo/org-logo';
+import { ORGS } from '../../shared/orgs';
 import { Reveal } from '../../shared/reveal.directive';
 
 interface Stat {
@@ -11,10 +13,12 @@ interface Stat {
 
 @Component({
   selector: 'app-proof',
-  imports: [Reveal],
+  imports: [OrgLogo, Reveal],
   templateUrl: './proof.html',
 })
 export class Proof {
+  readonly orgs = ORGS;
+
   readonly stats: Stat[] = [
     { key: 'exp_years', value: '12+ yrs', label: 'Combined engineering experience' },
     { key: 'engagements', value: '34+', label: 'Engagements shipped' },
