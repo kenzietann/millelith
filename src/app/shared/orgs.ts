@@ -7,5 +7,5 @@ export interface Org {
   logo: OrgLogoName;
 }
 
-/** Organizations we have helped. Shown under the stats and in the Track record section. */
+/** Organizations we have helped. Shown in the Track record section (first section after the stats band). */
 export const ORGS: readonly Org[] = [{ name: 'HAL Osaka', logo: 'hal-osaka' }];

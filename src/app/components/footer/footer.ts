@@ -17,9 +17,9 @@ export class Footer {
   readonly hex = hexDump(10, 0x0);
 
   readonly links: NavLink[] = [
+    { label: 'Track record', href: '#engagements' },
     { label: 'Services', href: '#services' },
     { label: 'About', href: '#about' },
-    { label: 'Track record', href: '#engagements' },
     { label: 'Process', href: '#process' },
     { label: 'Contact', href: '#contact' },
   ];
