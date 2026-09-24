@@ -1,5 +1,5 @@
 /** Logo keys — each has a matching `@case` in OrgLogo (shared/org-logo). */
-export type OrgLogoName = 'hal-osaka';
+export type OrgLogoName = 'hal-osaka' | 'binus';
 
 export interface Org {
   /** Accessible name announced for the logo. */
@@ -8,4 +8,4 @@ export interface Org {
 }
 
 /** Organizations we have helped. Shown in the Track record section (first section after the stats band). */
-export const ORGS: readonly Org[] = [{ name: 'HAL Osaka', logo: 'hal-osaka' }];
+export const ORGS: readonly Org[] = [{ name: 'HAL Osaka', logo: 'hal-osaka' }, {name: 'Binus University', logo: 'binus'}];
