@@ -2,54 +2,30 @@
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div appReveal class="max-w-2xl">
       <p class="section-kicker">Track record</p>
-      <h2 class="section-title">Organizations we have helped</h2>
-      <p class="section-lede">Teams that have trusted us to help secure their systems.</p>
+      <h2 class="section-title">In their words</h2>
     </div>
 
-    <div appReveal [appRevealDelay]="0.1" class="term brackets mt-14">
-      <div class="term-bar">
-        <div class="term-dots"><span></span><span></span><span></span></div>
-        <span class="ml-1">engagements.log</span>
-        <span class="ml-auto text-faint">tail -f</span>
-      </div>
-
-      <ul class="flex flex-col items-center justify-center gap-y-10 px-8 py-12 sm:flex-row sm:flex-wrap sm:gap-x-16 sm:py-16">
-        @for (org of orgs; track org.name) {
-          <li
-            class="relative text-dim transition-colors duration-150 hover:text-ink"
-            (mouseenter)="org.testimonial && showTestimonial(org.logo)"
-            (mouseleave)="org.testimonial && hideTestimonial(org.logo)"
-          >
-            @if (org.testimonial) {
-              <button
-                type="button"
-                class="inline-flex min-h-12 min-w-12 cursor-pointer items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alert focus-visible:ring-offset-4 focus-visible:ring-offset-panel"
-                [attr.aria-label]="'Read testimonial from ' + org.name"
-                [attr.aria-controls]="'testimonial-' + org.logo"
-                [attr.aria-expanded]="activeTestimonial() === org.logo"
-                (focus)="showTestimonial(org.logo)"
-                (blur)="closeTestimonial()"
-                (click)="toggleTestimonial(org.logo)"
-                (keydown.escape)="closeTestimonial()"
-              >
-                <app-org-logo [logo]="org.logo" [label]="org.name" class="h-20" />
-              </button>
-              <blockquote
-                [id]="'testimonial-' + org.logo"
-                [hidden]="activeTestimonial() !== org.logo"
-                class="absolute top-full left-1/2 z-20 mt-4 w-80 max-w-[calc(100vw-3rem)] -translate-x-1/2 border border-line-strong bg-raised p-5 text-sm leading-relaxed text-ink shadow-[0_12px_32px_rgb(0_0_0/0.45)]"
-              >
-                <p>&ldquo;{{ org.testimonial }}&rdquo;</p>
-                <footer class="mt-4 border-t border-line pt-3 font-mono text-[12px] tracking-[0.12em] text-dim uppercase">
-                  {{ org.name }}
-                </footer>
-              </blockquote>
-            } @else {
-              <app-org-logo [logo]="org.logo" [label]="org.name" class="h-10 sm:h-12" />
-            }
-          </li>
-        }
-      </ul>
+    <div class="mt-12">
+      @for (org of orgs; track org.name) {
+        <figure
+          appReveal
+          [appRevealDelay]="0.1"
+          class="grid border-y border-line bg-panel md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]"
+        >
+          <div class="flex items-center justify-center border-b border-line px-8 py-10 md:border-r md:border-b-0">
+            <app-org-logo [logo]="org.logo" [label]="org.name" class="h-20 text-ink" />
+          </div>
+          <div class="px-6 py-8 sm:px-10 sm:py-12">
+            <blockquote class="max-w-2xl text-lg leading-relaxed text-ink sm:text-xl">
+              &ldquo;{{ org.testimonial }}&rdquo;
+            </blockquote>
+            <figcaption class="mt-7 flex items-center gap-3 font-mono text-[12px] tracking-[0.12em] text-dim uppercase">
+              <span class="h-px w-6 bg-alert" aria-hidden="true"></span>
+              {{ org.name }}
+            </figcaption>
+          </div>
+        </figure>
+      }
     </div>
   </div>
 </section>
